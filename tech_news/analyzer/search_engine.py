@@ -19,5 +19,9 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
-    raise NotImplementedError
+    consulta = {"category": {"$regex": category, "$options": "i"}}
+    retorno_do_banco = search_news(consulta)
+    resultado = []
+    for documento in retorno_do_banco:
+        resultado.append((documento["title"], documento["url"]))
+    return resultado
