@@ -52,7 +52,6 @@ class ReadingPlanService:
     def _fit_to_existing_group(
         cls, result: Dict[str, List], new: Dict[str, Any]
     ):
-
         for group in result["readable"]:
             if new["reading_time"] >= group["unfilled_time"]:
                 continue
